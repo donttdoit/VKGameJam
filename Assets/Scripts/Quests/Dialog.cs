@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 
@@ -11,22 +12,22 @@ public class Dialog : MonoBehaviour
 
     private const string DIALOG_TRIGGER_NAME = "dialogTrigger";
 
-   private void OnTriggerEnter2D(Collider2D other)
+    private void Start()
     {
-        //if (other.GetComponent<>())
-        //{
-            SetDialogText();
-            _animator.SetTrigger(DIALOG_TRIGGER_NAME);
-        //}
+        _animator = GetComponent<Animator>();
     }
 
-    private void OnTriggerExit2D(Collider2D other)
+    public void OpenDialog()
     {
-        //if (other.GetComponent<>())
-        //{
-            _animator.SetTrigger(DIALOG_TRIGGER_NAME);
-        //}
+        SetDialogText();
+        _animator.SetTrigger(DIALOG_TRIGGER_NAME);
     }
+
+    public void CloseDialog()
+    {
+        _animator.SetTrigger(DIALOG_TRIGGER_NAME);
+    }
+    
     
     private void SetDialogText()
     {
