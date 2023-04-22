@@ -14,7 +14,7 @@ public class QuestsManager : MonoBehaviour
         _currentQuestIndex = 0;
     }
 
-    public void StartNextQuestOrFinish()
+    public void StartNextQuestOrEndGame()
     {
         if (_currentQuestIndex + 1 <= _quests.Count - 1)
         {

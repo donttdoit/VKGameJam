@@ -1,10 +1,14 @@
 using System;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Dialog : MonoBehaviour
 {
-    [SerializeField] private TextMeshProUGUI _dialogText;
+    [SerializeField] private TMP_Text _dialogText1;
+    [SerializeField] private Image _dialogImage1;
+    [SerializeField] private TMP_Text _dialogText2;
+    [SerializeField] private Image _dialogImage2;
 
     [SerializeField] private QuestsManager _questsManager;
 
@@ -27,20 +31,22 @@ public class Dialog : MonoBehaviour
     {
         _animator.SetTrigger(DIALOG_TRIGGER_NAME);
     }
-    
-    
+
+
     private void SetDialogText()
     {
         var currentQuest = _questsManager.GetCurrentQuest();
         if (currentQuest.IsFinished())
         {
-            _dialogText.SetText("Отдай это пчелам");
+            _dialogText1.SetText("Отдай это пчелам");
         }
         else
         {
-            var dialogText = "Пылинки " + currentQuest.GetPollenAmount() + System.Environment.NewLine + "Пушинки " +
-                             currentQuest.GetFluffAmount();
-            _dialogText.SetText(dialogText);
+            _dialogText1.SetText(currentQuest.GetPollenAmount() + "");
+            _dialogImage1.sprite = currentQuest.GetQuestItemPollen().GetSprite();
+
+            _dialogText2.SetText(currentQuest.GetFluffAmount() + "");
+            _dialogImage2.sprite = currentQuest.GetQuestItemFluff().GetSprite();
         }
     }
 }
