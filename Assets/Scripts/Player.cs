@@ -11,12 +11,16 @@ public class Player : MonoBehaviour
     //private UI_Inventory _ui_inventory;
 
     private Vector3 _targetToMove;
+
+    private const float _DOUBLE_CLICK_TIME = .2f;
+    private float _lastClickTime;
     //private bool _canMove;
 
     public Inventory GetInventory() => _inventory;
     private void Awake()
     {
-        _inventory = new Inventory();
+        //_inventory = new Inventory();
+        _inventory = GameObject.Find("Inventory").GetComponent<Inventory>();
         //_ui_inventory = FindObjectOfType<UI_Inventory>();
         //_ui_inventory.SetInventory(_inventory);
     }
@@ -29,6 +33,7 @@ public class Player : MonoBehaviour
     private void Update()
     {
         CheckActionArea();
+        Click();
         Move();
     }
 
@@ -51,6 +56,29 @@ public class Player : MonoBehaviour
         }
     }
 
+    private void Click()
+    {
+        
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            float timeSinceLastClick = Time.time - _lastClickTime;
+
+            // Double click
+            if (timeSinceLastClick < _DOUBLE_CLICK_TIME)
+            {
+                Debug.Log("Double Click");
+            }
+            // Normal click
+            else
+            {
+                Debug.Log("Normal Click");
+            }
+
+            _lastClickTime = Time.time;
+        }
+    }
+
     private void Move()
     {
         if (Input.GetMouseButtonDown(1))
@@ -63,5 +91,8 @@ public class Player : MonoBehaviour
         transform.position = Vector3.MoveTowards(transform.position, _targetToMove, _speed * Time.deltaTime);
   
     }
+
+
+    
 
 }
