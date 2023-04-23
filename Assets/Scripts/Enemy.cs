@@ -46,7 +46,7 @@ public class Enemy : MonoBehaviour
     private void Attack()
     {
         _player.TakeDamage(_damage);
-        Destroy(gameObject);
+        //Destroy(gameObject);
     }
 
     public float GetSpeed() => _speed;

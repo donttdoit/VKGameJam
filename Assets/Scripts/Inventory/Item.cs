@@ -8,9 +8,9 @@ public class Item : MonoBehaviour
     public enum ItemType
     {
         None,
-        Flask,
-        GreenPotion,
-        Flower,
+        Pollen,
+        Fluff,
+        Grass,
         Heal,
         Projectile
     }
@@ -30,9 +30,9 @@ public class Item : MonoBehaviour
         switch (itemType)
         {
             default:
-            case ItemType.Flask: return ItemAssets.Instance.Flask;
-            case ItemType.Flower: return ItemAssets.Instance.Flower;
-            case ItemType.GreenPotion: return ItemAssets.Instance.GreenPotion;  
+            case ItemType.Pollen: return ItemAssets.Instance.Pollen;
+            case ItemType.Fluff: return ItemAssets.Instance.Fluff;
+            case ItemType.Grass: return ItemAssets.Instance.Grass;
             case ItemType.Heal: return ItemAssets.Instance.Heal;
             case ItemType.Projectile: return ItemAssets.Instance.Projectile;
         }

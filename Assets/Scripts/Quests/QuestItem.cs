@@ -16,8 +16,8 @@ public class QuestItem
         switch (_questItemType)
         {
             default:
-            case QuestItemType.FLUFF: return ItemAssets.Instance.Flask;
-            case QuestItemType.POLLEN: return ItemAssets.Instance.GreenPotion;
+            case QuestItemType.FLUFF: return ItemAssets.Instance.Fluff;
+            case QuestItemType.POLLEN: return ItemAssets.Instance.Pollen;
         }
     }
 

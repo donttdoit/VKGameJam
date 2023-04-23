@@ -5,7 +5,7 @@ public class OnLevelLoad : MonoBehaviour
     private void Awake()
     {
         var player = FindObjectOfType<Player>(true);
-        player.transform.position = new Vector3(-1, 1, 0);
+        player.transform.position = new Vector3(-2, 1, 0);
         player.GetComponent<Player>()._canMove = false;
 
         var obj = FindObjectOfType<Bees>(true);

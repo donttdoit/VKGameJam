@@ -420,7 +420,6 @@ MonoBehaviour:
   _dialogImage1: {fileID: 810608716075905621}
   _dialogText2: {fileID: 810608716367864271}
   _dialogImage2: {fileID: 810608716527190460}
-  _questsManager: {fileID: 0}
 --- !u!1 &5062540055586238613
 GameObject:
   m_ObjectHideFlags: 0

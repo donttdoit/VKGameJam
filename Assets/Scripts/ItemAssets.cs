@@ -11,9 +11,9 @@ public class ItemAssets : MonoBehaviour
         Instance = this;
     }
 
-    public Sprite Flask;
-    public Sprite Flower;
-    public Sprite GreenPotion;
+    public Sprite Pollen;
+    public Sprite Fluff;
+    public Sprite Grass;
     public Sprite Heal;
     public Sprite Projectile;
 

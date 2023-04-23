@@ -164,7 +164,7 @@ public class Player : MonoBehaviour
 
     private void Attack()
     {
-        float attackRadius = 1f;
+        float attackRadius = 3f;
         RaycastHit2D hit = Physics2D.CircleCast(GetMousePosition(), attackRadius, Vector2.zero);
         if (hit.collider && hit.collider.gameObject.CompareTag("Enemy"))
         {

@@ -22,8 +22,8 @@ public class QuestsManager : MonoBehaviour
         _tasks.Add(2);
         _tasks.Add(3);
         _tasks.Add(6);
-        _tasks.Add(7);
-        _tasks.Add(7);
+        _tasks.Add(8);
+        _tasks.Add(8);
         _currentTaskIndex = 0;
 
         _sceneOrder.Add("BombidariumFirst");
