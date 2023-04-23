@@ -18,6 +18,7 @@ public class DeathScene : MonoBehaviour
     {
         _audioManager.PlayButtonSFX();
         //SceneManager.LoadScene(_questsManager.GetCurrentSceneName());
-        SceneManager.LoadScene(_questsManager.GetCurrentSceneName());
+       SceneManager.LoadScene(_questsManager.GetCurrentSceneName());
+       //SceneManager.LoadScene(6);
     }
 }

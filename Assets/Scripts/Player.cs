@@ -28,6 +28,8 @@ public class Player : MonoBehaviour
     public bool _canMove;
     private bool _canAttack;
 
+    private bool _isDead = false;
+
     public Inventory GetInventory() => _inventory;
 
     private void Awake()
@@ -60,17 +62,18 @@ public class Player : MonoBehaviour
         else
         {
             //Debug.Log("GameOver");
-            Dead();
+            if (!_isDead)
+            {
+                Dead();
+                _isDead = true;
+            }
+               
         }
-
-
     }
-
 
 
     private void Click()
     {
-
         if (Input.GetMouseButtonDown(0) || Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
         {
             if (!EventSystem.current.IsPointerOverGameObject())
