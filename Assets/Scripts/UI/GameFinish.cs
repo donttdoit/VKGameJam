@@ -6,15 +6,15 @@ using UnityEngine.SceneManagement;
 public class GameFinish : MonoBehaviour
 {
     [SerializeField] private TMP_Text _text;
-    private QuestsManager _questsManager;
+    private AudioManager _audioManager;
     private void Start()
     {
-        _questsManager = FindObjectOfType<QuestsManager>();
         _text.SetText("ВЫ ЗАВЕРШИЛИ ИГРУ");
     }
 
     public void ToMainMenu()
     {
+        _audioManager.PlayButtonSFX();
         SceneManager.LoadScene("MainMenu");
     }
 }
