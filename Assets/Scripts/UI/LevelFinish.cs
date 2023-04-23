@@ -32,6 +32,6 @@ public class LevelFinish : MonoBehaviour
    public void ToNextLevel()
    {
       _audioManager.PlayButtonSFX();
-      _questsManager.LoadNextLevel();
+      _questsManager.LoadNextScene();
    }
 }

@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class Inventory : MonoBehaviour
 {
     private Transform _inventory;
+    public int InventoryCounter = 0;
 
     private void Start()
     {
@@ -15,11 +16,13 @@ public class Inventory : MonoBehaviour
 
     public bool AddItem(Item item)
     {
+        InventoryCounter++;
+        
         Transform itemObject;
         Item newItem;
         Transform itemSlot = GetSlot(item.itemType);
 
-        // Если есть слот с таким предметом
+        // пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         if (itemSlot)
         {
             itemObject = itemSlot.GetChild(0);
@@ -28,7 +31,7 @@ public class Inventory : MonoBehaviour
             newItem.amount += item.amount;
             return true;
         }
-        // Если нет, то ищем свободный слот
+        // пїЅпїЅпїЅпїЅ пїЅпїЅпїЅ, пїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ
         else
         {
             int indexFreeSlot = GetFreeSlot();
@@ -52,7 +55,7 @@ public class Inventory : MonoBehaviour
         return false;
     }
 
-    // Возвращает индекс свободного слота или -1 если все занято
+    // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ -1 пїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
     public int GetFreeSlot()
     {
         int i = 0;
@@ -66,7 +69,7 @@ public class Inventory : MonoBehaviour
         return -1;
     }
 
-    // Возвращает объект слота по индексу
+    // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
     public Transform GetSlot(int index)
     {
         int i = 0;
@@ -79,7 +82,7 @@ public class Inventory : MonoBehaviour
         return null;
     }
 
-    // Возвращает объект слота по типу
+    // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅ
     public Transform GetSlot(Item.ItemType itemType)
     {
         foreach (Transform itemSlot in _inventory)
@@ -95,7 +98,7 @@ public class Inventory : MonoBehaviour
         return null;
     }
 
-    // Достаем единицу снаряда из инвентаря
+    // пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
     public Item GetProjectileItem()
     {
         foreach (Transform itemSlot in _inventory)

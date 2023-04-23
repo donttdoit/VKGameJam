@@ -7,6 +7,7 @@ public class SceneSaver : MonoBehaviour
     [SerializeField] private GameObject _ui;
     [SerializeField] private GameObject _player;
     [SerializeField] private GameObject _itemAssets;
+    [SerializeField] private SignToLevel _signToLevel;
 
 
     private void Start()
@@ -14,5 +15,6 @@ public class SceneSaver : MonoBehaviour
         DontDestroyOnLoad(_ui);
         DontDestroyOnLoad(_player);
         DontDestroyOnLoad(_itemAssets);
+        DontDestroyOnLoad(_signToLevel);
     }
 }

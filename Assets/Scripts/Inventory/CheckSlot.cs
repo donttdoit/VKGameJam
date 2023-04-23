@@ -83,7 +83,7 @@ public class CheckSlot : MonoBehaviour, IDropHandler
             if (IsEnoughAmount(item.amount))
             {
                 Debug.Log("������� �� ����� �������");
-                _questsManager.LoadNextLevel();
+                _questsManager.LoadNextScene();
             }
         }
     }

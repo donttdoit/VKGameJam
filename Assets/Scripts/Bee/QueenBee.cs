@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class QueenBee : MonoBehaviour
@@ -7,7 +5,7 @@ public class QueenBee : MonoBehaviour
     [SerializeField] private Dialog _dialog;
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.GetComponent<PlayerController>())
+        if (other.GetComponent<Player>())
         {
             _dialog.OpenDialog();
         }
@@ -15,7 +13,7 @@ public class QueenBee : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.GetComponent<PlayerController>())
+        if (other.GetComponent<Player>())
         {
             _dialog.CloseDialog();
         }
