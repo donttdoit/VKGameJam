@@ -63,6 +63,11 @@ public class QuestsManager : MonoBehaviour
         //Debug.Log("CurScene:" + _sceneOrder[_currentSceneIndex + 1]);
     }
 
+    public String GetCurrentSceneName()
+    {
+        return _sceneOrder[_currentSceneIndex];
+    }
+
     public Quest GetCurrentQuest()
     {
         return _quests[_currentQuestIndex];

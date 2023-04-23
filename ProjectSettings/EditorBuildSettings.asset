@@ -47,4 +47,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Bombidarium.unity
     guid: 7a40fa36a635238e684b8fc2d8ff3491
+  - enabled: 1
+    path: Assets/Scenes/Death.unity
+    guid: 95ca0dcea4b25bc759148850b2871766
   m_configObjects: {}
