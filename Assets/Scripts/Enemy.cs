@@ -36,8 +36,10 @@ public class Enemy : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        Debug.Log("Fight");
         if (collision.gameObject.CompareTag("Player"))
         {
+            
             Attack();
         }
     }

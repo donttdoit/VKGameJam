@@ -48,6 +48,7 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
+        //Debug.Log("canMove: "+_canMove);
         if (IsAlive())
         {
             //CheckActionArea();
@@ -61,33 +62,13 @@ public class Player : MonoBehaviour
             Dead();
         }
 
-        //Debug.Log(EventSystem.current.IsPointerOverGameObject());
+
     }
 
-    // �������� �� ��������� ������ � ������ ��������������
-    //private void CheckAttackArea()
-    //{
-    //    float _attackRadius = 0.5f;
-    //    RaycastHit2D hit = Physics2D.CircleCast(new Vector2(transform.position.x, transform.position.y), _attackRadius, Vector2.zero);
 
-    //    // ���� ���� �� Item, �� ��������� � ���������
-    //    if (hit.collider && hit.collider.gameObject.CompareTag("Enemy"))
-    //    {
-    //        //Attack(hit.collider.gameObject);
-
-
-    //        //GameObject itemObject = hit.collider.gameObject;
-    //        //Item item = itemObject.GetComponent<Item>();
-    //        //_inventory.AddItem(item);
-    //        //Destroy(itemObject);
-    //        //Debug.Log("Action");
-    //    }
-
-    //}
 
     private void Click()
     {
-        //Debug.Log("EventSystem: " + EventSystem.current.IsPointerOverGameObject());
 
         if (Input.GetMouseButtonDown(0) || Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
         {
@@ -114,6 +95,7 @@ public class Player : MonoBehaviour
             // Normal click
             else
             {
+                _audioSourceBee.Play();
             }
 
             _lastClickTime = Time.time;
@@ -125,7 +107,6 @@ public class Player : MonoBehaviour
     {
         if (_canMove)
         {
-            _audioSourceBee.Play();
             if (Input.GetMouseButtonDown(0))
             {
                 _targetToMove = GetMousePosition();
@@ -143,7 +124,7 @@ public class Player : MonoBehaviour
         }
         else
         {
-            _audioSourceBee.Stop();
+            _audioSourceBee.Pause();
         }
     }
 
