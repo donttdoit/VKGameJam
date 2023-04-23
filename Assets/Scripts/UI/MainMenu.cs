@@ -5,13 +5,13 @@ public class MainMenu : MonoBehaviour
 {
     [SerializeField] private AudioManager _audioManager;
 
-    private const string SAMPLE_SCENE_NAME = "SampleScene";
+    private const string SCENE_NAME = "LubaScene";
 
     public void PlayGame()
     {
         _audioManager.PlayButtonSFX();
         DontDestroyOnLoad(_audioManager.gameObject);
-        SceneManager.LoadScene(SAMPLE_SCENE_NAME);
+        SceneManager.LoadScene(SCENE_NAME);
     }
 
     public void SetMusicSlider(float volume)
