@@ -3,14 +3,13 @@ using UnityEngine;
 
 public class Bees : MonoBehaviour
 {
-    [SerializeField] private CheckSlot _checkSlot;
-
+    private CheckSlot _checkSlot;
     private Animator _animator;
     private QuestsManager _questsManager;
 
     private void OnEnable()
     {
-        _checkSlot.Getted += MakeHoneyCombs;
+        
     }
 
     public void OnDisable()
@@ -22,6 +21,8 @@ public class Bees : MonoBehaviour
     {
         _animator = GetComponent<Animator>();
         _questsManager = FindObjectOfType<QuestsManager>();
+        _checkSlot = FindObjectOfType<CheckSlot>();
+        _checkSlot.Getted += MakeHoneyCombs;
     }
 
 
@@ -35,6 +36,4 @@ public class Bees : MonoBehaviour
         Debug.Log("eeee");
         _questsManager.FinishQuest();
     }
-
-    
 }

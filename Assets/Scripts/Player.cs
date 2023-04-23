@@ -10,10 +10,13 @@ public class Player : MonoBehaviour
     [SerializeField] private int _damage = 3;
     [SerializeField] private float _speed = 5f;
 
+    private AudioSource _audioSourceBee;
+
     private int _maxHp = 3;
-    //[SerializeField] private float _attackRadius = 0.5f; // Радиус взаимодействия вокруг игрока
+    //[SerializeField] private float _attackRadius = 0.5f; // пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
 
     private Inventory _inventory;
+
     private Slider _hpSlider;
     //private UI_Inventory _ui_inventory;
 
@@ -25,6 +28,7 @@ public class Player : MonoBehaviour
     private bool _canAttack;
 
     public Inventory GetInventory() => _inventory;
+
     private void Awake()
     {
         //_inventory = new Inventory();
@@ -32,6 +36,7 @@ public class Player : MonoBehaviour
         _hpSlider = GameObject.Find("Slider").GetComponent<Slider>();
         //_ui_inventory = FindObjectOfType<UI_Inventory>();
         //_ui_inventory.SetInventory(_inventory);
+        _audioSourceBee = GameObject.Find("BeeSound").GetComponent<AudioSource>();
     }
 
     private void Start()
@@ -57,16 +62,15 @@ public class Player : MonoBehaviour
         }
 
         //Debug.Log(EventSystem.current.IsPointerOverGameObject());
-
     }
 
-    // Проверка на попадание игрока в радиус взаимодействия
+    // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
     //private void CheckAttackArea()
     //{
     //    float _attackRadius = 0.5f;
     //    RaycastHit2D hit = Physics2D.CircleCast(new Vector2(transform.position.x, transform.position.y), _attackRadius, Vector2.zero);
-            
-    //    // Если клик по Item, то добавляем в инвентарь
+
+    //    // пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅ Item, пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
     //    if (hit.collider && hit.collider.gameObject.CompareTag("Enemy"))
     //    {
     //        //Attack(hit.collider.gameObject);
@@ -105,18 +109,14 @@ public class Player : MonoBehaviour
                 {
                     Attack();
                 }
-
             }
 
             // Normal click
             else
             {
- 
-
             }
+
             _lastClickTime = Time.time;
-            
-            
         }
     }
 
@@ -125,6 +125,7 @@ public class Player : MonoBehaviour
     {
         if (_canMove)
         {
+            _audioSourceBee.Play();
             if (Input.GetMouseButtonDown(0))
             {
                 _targetToMove = GetMousePosition();
@@ -140,6 +141,10 @@ public class Player : MonoBehaviour
                 _canMove = false;
             }
         }
+        else
+        {
+            _audioSourceBee.Stop();
+        }
     }
 
 
@@ -152,11 +157,13 @@ public class Player : MonoBehaviour
     }
 
     public bool IsAlive() => _hp > 0;
+
     public void TakeDamage(int damage)
     {
         _hp -= damage;
         _hpSlider.value = _hp;
     }
+
     public int GetHp() => _hp;
 
     public void SetHp(int hp)
@@ -183,22 +190,21 @@ public class Player : MonoBehaviour
             Item item = _inventory.GetProjectileItem();
             if (item)
             {
-                GameObject projectile = Instantiate(ItemAssets.Instance.ProjectilePrefab, transform.position, Quaternion.identity);
+                GameObject projectile = Instantiate(ItemAssets.Instance.ProjectilePrefab, transform.position,
+                    Quaternion.identity);
                 Projectile projectileObj = projectile.GetComponent<Projectile>();
                 projectileObj.SetTarget(hit.collider.gameObject.transform.position);
                 projectileObj.SetDamage(_damage);
             }
         }
-
     }
 
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        // Подбираем предмет в инвентарь
+        // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         if (collision.gameObject.CompareTag("Item"))
         {
-
             Item item = collision.gameObject.GetComponent<Item>();
             if (_inventory.AddItem(item))
             {

@@ -15,6 +15,9 @@ public class QuestsManager : MonoBehaviour
 
     private void Awake()
     {
+        _quests.Add(new Quest(2, 1));
+        _currentQuestIndex = 0;
+        
         _tasks.Add(0);
         _tasks.Add(2);
         _tasks.Add(3);
@@ -22,15 +25,13 @@ public class QuestsManager : MonoBehaviour
         _tasks.Add(7);
         _currentTaskIndex = 0;
 
-        _quests.Add(new Quest(2, 1));
-        _currentQuestIndex = 0;
-
         _sceneOrder.Add("BombidariumFirst");
         _sceneOrder.Add("Level1");
         _sceneOrder.Add("Level2");
         _sceneOrder.Add("Level3");
         _sceneOrder.Add("Level4");
         _sceneOrder.Add("Bombidarium");
+        _sceneOrder.Add("LevelFinish");
         _currentSceneIndex = 0;
     }
 
@@ -48,8 +49,16 @@ public class QuestsManager : MonoBehaviour
 
     public void LoadNextScene()
     {
-        SceneManager.LoadScene(_sceneOrder[++_currentSceneIndex]);
-        _currentTaskIndex++;
+        if (_currentSceneIndex < _sceneOrder.Count)
+        {
+            SceneManager.LoadScene(_sceneOrder[++_currentSceneIndex]);
+            if (_currentTaskIndex < _tasks.Count) _currentTaskIndex++;
+        }
+        else
+        {
+            StartNextQuestOrEndGame();
+        }
+        
         //Debug.Log("CurScene:" + _sceneOrder[_currentSceneIndex + 1]);
     }
 
@@ -67,12 +76,12 @@ public class QuestsManager : MonoBehaviour
     {
         return _tasks[_currentTaskIndex];
     }
-    
+
     public int GetCurrentTaskId()
     {
         return _currentTaskIndex;
     }
-    
+
 
     private void StartNextQuestOrEndGame()
     {

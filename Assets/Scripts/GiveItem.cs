@@ -17,10 +17,12 @@ public class GiveItem : MonoBehaviour
             Ray ray = mainCamera.ScreenPointToRay(Mouse.current.position.ReadValue());
 
             RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction);
-            if (hit.collider.name == name)
+            if (hit)
             {
-                Debug.Log(("999"));
-                GetComponentInChildren<Item>(true).gameObject.SetActive(true);
+                if (hit.collider.name == name)
+                {
+                    GetComponentInChildren<Item>(true).gameObject.SetActive(true);
+                }
             }
         }
         
