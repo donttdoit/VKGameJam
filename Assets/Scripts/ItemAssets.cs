@@ -14,6 +14,9 @@ public class ItemAssets : MonoBehaviour
     public Sprite Flask;
     public Sprite Flower;
     public Sprite GreenPotion;
+    public Sprite Heal;
+    public Sprite Projectile;
 
     public GameObject ItemPrefab;
+    public GameObject ProjectilePrefab;
 }
