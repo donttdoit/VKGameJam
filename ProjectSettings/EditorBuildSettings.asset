@@ -8,22 +8,28 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MaxScene.unity
     guid: 9c018432c711ec84084be1814c1f2589
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: f27d52206d53be3a694832819b191fd4
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/LubaScene.unity
     guid: 21c23381b98da2a8382153420614d207
   - enabled: 0
-    path: Assets/Scenes/LevelFinish 1.unity
-    guid: b6ee895f2cd493ee581b9c79ae11d45e
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Scenes/GamelFinish.unity
     guid: 8c79a87d922f2d7e99488430a230bdf5
   - enabled: 1
     path: Assets/Scenes/LevelFinish.unity
     guid: 6a1c715cb33699719a952f8deb22a087
+  - enabled: 1
+    path: Assets/Scenes/BombidariumFirst.unity
+    guid: 5fcccf96d583c8274b3be7cc1c053fcd
+  - enabled: 1
+    path: Assets/Scenes/Bombidarium.unity
+    guid: 77371ddbea6c0b9f3870bf09ad03ae95
   m_configObjects: {}

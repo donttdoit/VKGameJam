@@ -894,7 +894,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _audioManager: {fileID: 377533565}
-  _questsManager: {fileID: 0}
+  _questsManager: {fileID: 1695381288}
 --- !u!1 &843207083
 GameObject:
   m_ObjectHideFlags: 0
@@ -1615,6 +1615,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1557866584}
   m_CullTransparentMesh: 1
+--- !u!114 &1695381288 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4087451444152716403, guid: e49a29100d63082238a227821b175225, type: 3}
+  m_PrefabInstance: {fileID: 714987734}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f8d38b569aab5830843a43b651ab3f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1696351123
 GameObject:
   m_ObjectHideFlags: 0

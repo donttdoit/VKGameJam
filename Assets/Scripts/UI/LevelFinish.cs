@@ -6,14 +6,18 @@ using UnityEngine.SceneManagement;
 public class LevelFinish : MonoBehaviour
 {
    [SerializeField] private TMP_Text _text;
-   [SerializeField] private String _nextLevelScene;
 
    private QuestsManager _questsManager;
    private AudioManager _audioManager;
-   private void Start()
+
+   private void Awake()
    {
       _questsManager = FindObjectOfType<QuestsManager>();
       _audioManager = FindObjectOfType<AudioManager>();
+   }
+
+   private void Start()
+   {
       _text.SetText("ВЫ ПРОШЛИ " + _questsManager.GetCurrentQuestId() + " УРОВЕНЬ");
    }
 
@@ -28,6 +32,6 @@ public class LevelFinish : MonoBehaviour
    public void ToNextLevel()
    {
       _audioManager.PlayButtonSFX();
-      SceneManager.LoadScene(_nextLevelScene);
+      _questsManager.LoadNextLevel();
    }
 }

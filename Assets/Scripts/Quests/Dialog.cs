@@ -10,7 +10,7 @@ public class Dialog : MonoBehaviour
     [SerializeField] private TextMesh _dialogText2;
     [SerializeField] private Image _dialogImage2;
 
-    [SerializeField] private QuestsManager _questsManager;
+    private QuestsManager _questsManager;
 
     private Animator _animator;
 
@@ -19,6 +19,7 @@ public class Dialog : MonoBehaviour
     private void Start()
     {
         _animator = GetComponent<Animator>();
+        _questsManager = FindObjectOfType<QuestsManager>();
     }
 
     public void OpenDialog()

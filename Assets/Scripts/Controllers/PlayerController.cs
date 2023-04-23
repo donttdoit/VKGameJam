@@ -48,7 +48,7 @@ public class PlayerController : MonoBehaviour
         if (hit)
         {
             Debug.Log(("hit"));
-            //_coroutine = StartCoroutine(PlayerMoveTowards(hit.point, 0.1f));
+            _coroutine = StartCoroutine(PlayerMoveTowards(hit.point, 0.1f));
         }
         else
         {

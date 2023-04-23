@@ -6,14 +6,12 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private AudioManager _audioManager;
     [SerializeField] private QuestsManager _questsManager;
 
-    private const string SCENE_NAME = "LubaScene";
-
     public void PlayGame()
     {
         _audioManager.PlayButtonSFX();
         DontDestroyOnLoad(_audioManager.gameObject);
-        DontDestroyOnLoad(_audioManager.gameObject);
-        SceneManager.LoadScene(SCENE_NAME);
+        DontDestroyOnLoad(_questsManager.gameObject);
+        _questsManager.LoadLevelById(0);
     }
 
     public void SetMusicSlider(float volume)
