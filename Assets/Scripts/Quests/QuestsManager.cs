@@ -23,6 +23,7 @@ public class QuestsManager : MonoBehaviour
         _tasks.Add(3);
         _tasks.Add(6);
         _tasks.Add(7);
+        _tasks.Add(7);
         _currentTaskIndex = 0;
 
         _sceneOrder.Add("BombidariumFirst");
@@ -31,14 +32,14 @@ public class QuestsManager : MonoBehaviour
         _sceneOrder.Add("Level3");
         _sceneOrder.Add("Level4");
         _sceneOrder.Add("Bombidarium");
-        _sceneOrder.Add("LevelFinish");
         _currentSceneIndex = 0;
     }
 
     public void FinishQuest()
     {
         _quests[_currentQuestIndex].FinishQuest();
-        StartNextQuestOrEndGame();
+        SceneManager.LoadScene("LevelFinish");
+        //StartNextQuestOrEndGame();
     }
 
 
@@ -105,6 +106,6 @@ public class QuestsManager : MonoBehaviour
 
     private void EndGame()
     {
-        SceneManager.LoadScene("GameFinish");
+        SceneManager.LoadScene("GamelFinish");
     }
 }

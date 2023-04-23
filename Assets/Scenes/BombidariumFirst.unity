@@ -1157,6 +1157,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a91da37c09cf094ea486b308cf2048a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _checkSlot: {fileID: 1489419701}
 --- !u!95 &661346503
 Animator:
   serializedVersion: 5
@@ -2173,6 +2174,17 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+--- !u!114 &1489419701 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6909469280060977412, guid: 6746626be9709a3479b4e88371d6d2c1, type: 3}
+  m_PrefabInstance: {fileID: 1489419698}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1489419699}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65c48781849f0c04d9a3a481b1474e88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1557830738
 GameObject:
   m_ObjectHideFlags: 0
