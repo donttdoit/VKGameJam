@@ -9,9 +9,15 @@ using TMPro;
 public class CheckSlot : MonoBehaviour, IDropHandler
 {
     public event Action Getted;
+    private QuestsManager _questsManager;
     
     [SerializeField] private Item.ItemType _requiredItemType;
     [SerializeField] private int _requiredAmount;
+
+    private void Awake()
+    {
+        _questsManager = FindObjectOfType<QuestsManager>();
+    }
 
     private void FixedUpdate()
     {
@@ -77,6 +83,7 @@ public class CheckSlot : MonoBehaviour, IDropHandler
             if (IsEnoughAmount(item.amount))
             {
                 Debug.Log("������� �� ����� �������");
+                _questsManager.LoadNextLevel();
             }
         }
     }

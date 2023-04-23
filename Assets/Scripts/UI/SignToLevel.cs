@@ -12,7 +12,13 @@ public class SignToLevel : MonoBehaviour
         _questsManager = FindObjectOfType<QuestsManager>();
     }
 
-    private void OnTriggerEnter(Collider other)
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    Debug.Log("enter");
+    //    _questsManager.LoadNextLevel();
+    //}
+
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         Debug.Log("enter");
         _questsManager.LoadNextLevel();

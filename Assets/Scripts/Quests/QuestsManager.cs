@@ -46,7 +46,8 @@ public class QuestsManager : MonoBehaviour
     }
     public void LoadNextLevel()
     {
-        SceneManager.LoadScene(_sceneOrder[_currentSceneIndex + 1]);
+        SceneManager.LoadScene(_sceneOrder[++_currentSceneIndex]);
+        //Debug.Log("CurScene:" + _sceneOrder[_currentSceneIndex + 1]);
     }
 
     public int GetCurrentQuestId()
