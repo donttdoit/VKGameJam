@@ -6,6 +6,10 @@ TagManager:
   tags:
   - Action
   - Item
+  - Enemy
+  - AngryCollision
+  - UI
+  - RestrictZone
   layers:
   - Default
   - TransparentFX

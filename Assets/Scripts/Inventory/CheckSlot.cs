@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,6 +8,8 @@ using TMPro;
 
 public class CheckSlot : MonoBehaviour, IDropHandler
 {
+    public event Action Getted;
+    
     [SerializeField] private Item.ItemType _requiredItemType;
     [SerializeField] private int _requiredAmount;
 
@@ -25,20 +28,33 @@ public class CheckSlot : MonoBehaviour, IDropHandler
     {
         GameObject dropped = eventData.pointerDrag;
         Item draggableItem = dropped.GetComponent<Item>();
-        // Если слот не пустой
+        // пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
         if (!IsFreeSlot())
         {
+
             Item item = GetComponentInChildren<Item>();
-            // Если нужный тип предмета
+            // пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+
+            // пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+
             if (IsRightType(draggableItem.itemType))
             {
                 item.amount += draggableItem.amount;
                 Destroy(dropped);
 
+
                 CheckMissionComplete(item);
+
+                
+                // if (IsEnoughAmount(item.amount))
+                // {
+                //     Debug.Log("пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ");
+                //     Getted?.Invoke();
+                // }
+
             }
         }
-        // Если же слот пустой
+        // пїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
         else
         {
             DraggableItem draggablObject = dropped.GetComponent<DraggableItem>();
@@ -60,7 +76,7 @@ public class CheckSlot : MonoBehaviour, IDropHandler
         {
             if (IsEnoughAmount(item.amount))
             {
-                Debug.Log("Переход на новый уровень");
+                Debug.Log("пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ");
             }
         }
     }
