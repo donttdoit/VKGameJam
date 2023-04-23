@@ -15,6 +15,9 @@ public class OnBombidatiumLoad : MonoBehaviour
 
         var checkslot = FindObjectOfType<CheckSlot>(true);
         if(checkslot != null) checkslot.gameObject.SetActive(true);
+
+        var sign = FindObjectOfType<SignToLevel>(true);
+        if(sign != null) sign.gameObject.SetActive(false);
     }
     
 }
