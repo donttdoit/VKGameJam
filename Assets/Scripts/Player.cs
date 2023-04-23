@@ -28,6 +28,7 @@ public class Player : MonoBehaviour
     public bool _canMove;
     private bool _canAttack;
 
+    private bool _isDeath = false;
     public Inventory GetInventory() => _inventory;
 
     private void Awake()
@@ -60,7 +61,12 @@ public class Player : MonoBehaviour
         else
         {
             //Debug.Log("GameOver");
-            Dead();
+            if (!_isDeath)
+            {
+                Dead();
+                _isDeath = true;
+            }
+            
         }
 
 
