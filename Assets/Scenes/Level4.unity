@@ -947,11 +947,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3687792345692297937, guid: 70feb074cb89bae488a5e4a2aa23ed96, type: 3}
       propertyPath: _speed
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3687792345692297937, guid: 70feb074cb89bae488a5e4a2aa23ed96, type: 3}
       propertyPath: _damage
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3687792345692297938, guid: 70feb074cb89bae488a5e4a2aa23ed96, type: 3}
       propertyPath: m_Name

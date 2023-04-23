@@ -18,7 +18,7 @@ public class LevelFinish : MonoBehaviour
 
    private void Start()
    {
-      _text.SetText("ВЫ ПРОШЛИ " + (_questsManager.GetCurrentQuestId()+1) + " УРОВЕНЬ");
+      //_text.SetText("ВЫ ПРОШЛИ " + (_questsManager.GetCurrentQuestId()+1) + " УРОВЕНЬ");
    }
 
    public void ToMainMenu()

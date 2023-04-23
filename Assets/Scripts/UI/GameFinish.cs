@@ -10,7 +10,7 @@ public class GameFinish : MonoBehaviour
     private void Start()
     {
         _audioManager = FindObjectOfType<AudioManager>();
-        _text.SetText("Над игрой работали: Горячева А. М. – гейм-дизайнер, Хозяинова Л. Б. – программист, Меркулов М. А. – программист, Пушкина А. А. – художникАпрель 2023");
+        //_text.SetText("Над игрой работали: Горячева А. М. – гейм-дизайнер, Хозяинова Л. Б. – программист, Меркулов М. А. – программист, Пушкина А. А. – художникАпрель 2023");
     }
 
     public void ToMainMenu()

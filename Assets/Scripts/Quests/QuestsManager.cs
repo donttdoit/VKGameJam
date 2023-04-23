@@ -68,6 +68,14 @@ public class QuestsManager : MonoBehaviour
         return _sceneOrder[_currentSceneIndex];
     }
 
+    public void LoadMainScene()
+    {
+        _currentQuestIndex = 0;
+        _currentSceneIndex = 0;
+        _currentTaskIndex = 0;
+        LoadSceneById(0);
+    }
+
     public Quest GetCurrentQuest()
     {
         return _quests[_currentQuestIndex];
