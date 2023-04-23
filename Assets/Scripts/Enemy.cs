@@ -38,8 +38,7 @@ public class Enemy : MonoBehaviour
     {
         Debug.Log("Fight");
         if (collision.gameObject.CompareTag("Player"))
-        {
-            
+        { 
             Attack();
         }
     }
