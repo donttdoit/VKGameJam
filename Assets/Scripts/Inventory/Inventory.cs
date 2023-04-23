@@ -13,7 +13,7 @@ public class Inventory : MonoBehaviour
         _inventory = GameObject.Find("Inventory").GetComponent<Transform>();
     }
 
-    public void AddItem(Item item)
+    public bool AddItem(Item item)
     {
         Transform itemObject;
         Item newItem;
@@ -26,6 +26,7 @@ public class Inventory : MonoBehaviour
             newItem = itemObject.GetComponent<Item>();
 
             newItem.amount += item.amount;
+            return true;
         }
         // Если нет, то ищем свободный слот
         else
@@ -44,9 +45,11 @@ public class Inventory : MonoBehaviour
                 newItem.amount = item.amount;
                 itemObject.gameObject.GetComponent<Image>().sprite = newItem.GetSprite();
 
+                return true;
             }
         }
-        
+
+        return false;
     }
 
     // Возвращает индекс свободного слота или -1 если все занято
@@ -89,6 +92,32 @@ public class Inventory : MonoBehaviour
                     return itemSlot;
             }
         }
+        return null;
+    }
+
+    // Достаем единицу снаряда из инвентаря
+    public Item GetProjectileItem()
+    {
+        foreach (Transform itemSlot in _inventory)
+        {
+            if (itemSlot.childCount > 0)
+            {
+                Transform itemObject = itemSlot.GetChild(0);
+                Item item = itemObject.GetComponent<Item>();
+
+                if (item && item.itemType == Item.ItemType.Projectile)
+                {
+                    item.amount--;
+                    if (item.amount <= 0)
+                    {
+                        Destroy(itemObject.gameObject);
+                    }
+                    return item;
+                }
+                    
+            }
+        }
+
         return null;
     }
 }
