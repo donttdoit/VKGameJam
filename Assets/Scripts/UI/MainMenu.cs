@@ -11,7 +11,7 @@ public class MainMenu : MonoBehaviour
         _audioManager.PlayButtonSFX();
         DontDestroyOnLoad(_audioManager.gameObject);
         DontDestroyOnLoad(_questsManager.gameObject);
-        _questsManager.LoadSceneById(0);
+        SceneManager.LoadScene("Ruls");
     }
 
     public void SetMusicSlider(float volume)

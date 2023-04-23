@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -158,7 +159,8 @@ public class Player : MonoBehaviour
 
     public void Dead()
     {
-        _hpSlider.value = 0;
+        _hpSlider.value = _hpSlider.maxValue;
+        SceneManager.LoadScene("Death");
         Debug.Log("Game Over");
     }
 

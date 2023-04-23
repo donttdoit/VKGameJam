@@ -407,9 +407,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce50957ac99b69545a03d07179d14abb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Flask: {fileID: 21300000, guid: 2b221aae2a3b00047b49b21111bdd360, type: 3}
-  Flower: {fileID: 21300000, guid: 97f61d5d5bd56ed4a8a5717308e0e61c, type: 3}
-  GreenPotion: {fileID: 21300000, guid: 015089e52b2039847ab135e335ede151, type: 3}
+  Pollen: {fileID: 0}
+  Fluff: {fileID: 0}
+  Grass: {fileID: 0}
   Heal: {fileID: 0}
   Projectile: {fileID: 0}
   ItemPrefab: {fileID: 459843837714138826, guid: 3492c64377a944f4485c6429e5db3363, type: 3}
@@ -440,6 +440,10 @@ PrefabInstance:
       propertyPath: _questsManager
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 5062540055586238615, guid: 7cfd7cc21358c69b1a20de9ae698f164, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 49e6bd0f3f75ac81daa253f65cf6ab9f, type: 3}
     - target: {fileID: 5062540055718050202, guid: 7cfd7cc21358c69b1a20de9ae698f164, type: 3}
       propertyPath: m_Name
       value: QueenBee
